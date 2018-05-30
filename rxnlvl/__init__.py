@@ -1,4 +1,4 @@
-#! /usr/bin/python
+#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
 #    rxnlvl 0.21
@@ -17,12 +17,15 @@
 #    You should have received a copy of the GNU General Public License
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+import sys
+import os
+
 from energy import energy
-from level  import level
-from edge   import edge
+from level import level
+from edge import edge
 from baseline import baseline
 from rxnlvl_util import validateColour, appendTextFile
-import sys, os
+
 
 class plot():
    # dimensions = [0,0]
@@ -68,7 +71,6 @@ class plot():
             )
         except AssertionError as e:
             sys.stderr.write(str(e))
-            sys.exit(1)
         self.qualified = qualified
         try:
             assert vbuf > 0 and hbuf > 0,\
